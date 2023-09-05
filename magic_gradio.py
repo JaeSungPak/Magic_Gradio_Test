@@ -10,7 +10,7 @@ def generate_mesh(input_image):
     input_path = "./input"
     output_path = "./out"
     image_path = input_path + "/input.png"
-    GPU_NUM = "0"
+    GPU_NUM = "1"
 
     if os.path.exists(input_path):
       shutil.rmtree(input_path)

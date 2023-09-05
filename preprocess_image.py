@@ -139,7 +139,7 @@ depth_config={
     "optimize": False,
     "height": None,
     "square": False,
-    "device":0,
+    "device":1,
     "grayscale": False
 }
 

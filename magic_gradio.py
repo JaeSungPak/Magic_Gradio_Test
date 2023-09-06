@@ -15,7 +15,11 @@ with gr.Blocks() as demo:
     btn = gr.Button("Generate!")
     
     def generate_mesh(input_image, progress=gr.Progress(track_tqdm=True)):
-
+        
+        for i in tqdm.tqdm(range(2), desc="outer"):
+            for j in tqdm.tqdm(range(50), desc="inner"):
+                time.sleep(0.01)
+                
         input_path = "./input"
         output_path = "./out"
         image_path = input_path + "/input.png"
@@ -31,7 +35,6 @@ with gr.Blocks() as demo:
 
         cmd_1 = f"python preprocess_image.py --path {image_path}"
         cmd_2 = f"bash scripts/magic123/run_both_priors.sh {GPU_NUM} nerf dmtet {input_path} 1 1"
-
 
         try:
             completed_process = subprocess.run(cmd_1.split(), stdout=subprocess.PIPE)

@@ -44,7 +44,7 @@ if (( ${step1} )); then
         --learned_embeds_path ${DATA_DIR}/learned_embeds.bin \
         --workspace out/magic123-${RUN_ID}-coarse/$dataset/magic123_${FILENAME}_${RUN_ID}_coarse \
         --optim adam \
-        --iters 5000 \
+        --iters 500 \
         --guidance SD zero123 \
         --lambda_guidance 1.0 40 \
         --guidance_scale 100 5 \
@@ -64,7 +64,7 @@ if (( ${step2} )); then
         --learned_embeds_path ${DATA_DIR}/learned_embeds.bin \
         --workspace out/magic123-${RUN_ID}-${RUN_ID2}/$dataset/magic123_${FILENAME}_${RUN_ID}_${RUN_ID2} \
         --dmtet --init_ckpt out/magic123-${RUN_ID}-coarse/$dataset/magic123_${FILENAME}_${RUN_ID}_coarse/checkpoints/magic123_${FILENAME}_${RUN_ID}_coarse.pth \
-        --iters 5000 \
+        --iters 500 \
         --optim adam \
         --latent_iter_ratio 0 \
         --guidance SD zero123 \

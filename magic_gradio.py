@@ -5,6 +5,8 @@ import subprocess
 from PIL import Image
 import numpy as np
 import shutil
+import time
+import tqdm
 
 def run(command):
     process = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
@@ -15,6 +17,11 @@ def run(command):
         yield line.decode('utf-8')
 
 def generate_mesh(input_image):
+    
+    for i in tqdm.tqdm(range(5), desc="outer"):
+        for j in tqdm.tqdm(range(4), desc="inner"):
+            time.sleep(1)
+
     input_path = "./input"
     output_path = "./out"
     image_path = input_path + "/input.png"

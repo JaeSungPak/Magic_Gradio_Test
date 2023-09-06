@@ -16,10 +16,6 @@ with gr.Blocks() as demo:
     
     def generate_mesh(input_image, progress=gr.Progress(track_tqdm=True)):
 
-        for i in tqdm.tqdm(range(5), desc="outer"):
-            for j in tqdm.tqdm(range(4), desc="inner"):
-                time.sleep(1)
-
         input_path = "./input"
         output_path = "./out"
         image_path = input_path + "/input.png"

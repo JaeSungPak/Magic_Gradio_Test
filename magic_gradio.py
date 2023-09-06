@@ -34,7 +34,7 @@ def generate_mesh(input_image):
     try:
         subprocess.run(cmd_1.split(), check=True, capture_output=True, text=True)
         for path in run(cmd_2):
-            print path
+            print(path)
     except subprocess.CalledProcessError as e:
         print(f"Error occurred: {e}")
 

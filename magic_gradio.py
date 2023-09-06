@@ -24,7 +24,7 @@ with gr.Blocks() as demo:
         input_path = "./input"
         output_path = "./out"
         image_path = input_path + "/input.png"
-        GPU_NUM = 1
+        GPU_NUM = "1"
         os.environ["CUDA_VISIBLE_DEVICES"]=GPU_NUM
 
         if os.path.exists(input_path):

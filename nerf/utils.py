@@ -1043,7 +1043,7 @@ class Trainer(object):
 
         start_t = time.time()
 
-        for epoch in range(self.epoch + 1, max_epochs + 1):
+        for epoch in tqdm.tqdm(range(self.epoch + 1, max_epochs + 1), desc="epoch"):
             self.epoch = epoch
 
             self.train_one_epoch(train_loader, max_epochs)

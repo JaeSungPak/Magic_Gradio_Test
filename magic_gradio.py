@@ -34,7 +34,7 @@ with gr.Blocks() as demo:
         input_image.save(image_path)
 
         cmd_1 = f"python preprocess_image.py --path {image_path}"
-        cmd_2 = f"bash scripts/magic123/run_both_priors.sh {GPU_NUM} nerf dmtet {input_path} 1 1"
+        cmd_2 = f"bash scripts/magic123/run_both_priors.sh {GPU_NUM} default dmtet {input_path} 1 1"
 
 
         try:

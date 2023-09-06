@@ -33,7 +33,7 @@ def generate_mesh(input_image):
 
 
     try:
-        subprocess.run(cmd_1.split(), check=True, capture_output=True, text=True)
+        completed_process = subprocess.run(cmd_1.split(), check=True, capture_output=True, text=True)
         completed_process = subprocess.run(cmd_2.split(), check=True, capture_output=True, text=True)
         print(completed_process.stdout)
     except subprocess.CalledProcessError as e:

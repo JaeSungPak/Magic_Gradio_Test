@@ -34,11 +34,9 @@ with gr.Blocks() as demo:
 
 
         try:
-            completed_process = subprocess.Popen(cmd_1.split(), stdout=subprocess.PIPE, shell=True)
-            completed_process.wait()
-            completed_process = subprocess.Popen(cmd_2.split(), stdout=subprocess.PIPE, shell=True)
-            completed_process.wait()
-            print(completed_process.stdout)
+            completed_process = subprocess.run(cmd_1.split(), check=True, capture_output=True, text=True, stdout=subprocess.PIPE)
+            completed_process = subprocess.run(cmd_2.split(), check=True, capture_output=True, text=True, stdout=subprocess.PIPE)
+        print(completed_process.stdout)
         except subprocess.CalledProcessError as e:
             print(f"Error occurred: {e}")
             print(e.stdout)

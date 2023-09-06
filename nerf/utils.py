@@ -1042,9 +1042,9 @@ class Trainer(object):
         #     torch.cuda.empty_cache()
 
         start_t = time.time()
-        stage_num = "1/2: "
+        stage_num = "Stage 1/2 - "
         if self.opt.dmtet:
-            stage_num = "2/2: "
+            stage_num = "Stage 2/2 - "
         
         for epoch in tqdm.tqdm(range(self.epoch + 1, max_epochs + 1), desc=stage_num+"epoch"):
             self.epoch = epoch

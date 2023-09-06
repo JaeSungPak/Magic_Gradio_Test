@@ -41,9 +41,9 @@ def generate_mesh(input_image):
     output_name = f"./out/magic123-nerf-dmtet/magic123_input_nerf_dmtet/mesh/mesh.glb"
     return output_name
 
-image = Image.open("./0.png")
-generate_mesh(image)
+#image = Image.open("./0.png")
+#generate_mesh(image)
 
-#inputs = gr.inputs.Image(label="Image", type="pil")
-#outputs = gr.Model3D(label="3D Mesh", clear_color=[1.0, 1.0, 1.0, 1.0])
-#gr.Interface(generate_mesh, inputs, outputs).launch()
+inputs = gr.inputs.Image(label="Image", type="pil")
+outputs = gr.Model3D(label="3D Mesh", clear_color=[1.0, 1.0, 1.0, 1.0])
+gr.Interface(generate_mesh, inputs, outputs).launch()

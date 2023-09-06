@@ -10,9 +10,9 @@ import tqdm
 
 #with gr.Blocks() as demo:
     
-    inputs = gr.inputs.Image(label="Image", type="pil")
-    outputs = gr.Model3D(label="3D Mesh", clear_color=[1.0, 1.0, 1.0, 1.0])
-    btn = gr.Button("Generate!")
+    #inputs = gr.inputs.Image(label="Image", type="pil")
+    #outputs = gr.Model3D(label="3D Mesh", clear_color=[1.0, 1.0, 1.0, 1.0])
+    #btn = gr.Button("Generate!")
     
 def generate_mesh(input_image, progress=gr.Progress(track_tqdm=True)):
 

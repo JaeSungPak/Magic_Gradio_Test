@@ -7,7 +7,7 @@ import numpy as np
 import shutil
 import time
 import tqdm
-#import main
+import main
 
 with gr.Blocks() as demo:
     
@@ -24,7 +24,7 @@ with gr.Blocks() as demo:
         input_path = "./input"
         output_path = "./out"
         image_path = input_path + "/input.png"
-        GPU_NUM = "1"
+        GPU_NUM = "0"
 
         if os.path.exists(input_path):
             shutil.rmtree(input_path)

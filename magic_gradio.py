@@ -12,7 +12,7 @@ with gr.Blocks() as demo:
     
     inputs = gr.inputs.Image(label="Image", type="pil")
     outputs = gr.Model3D(label="3D Mesh", clear_color=[1.0, 1.0, 1.0, 1.0])
-    btn = gr.Button("Bind Internal TQDM")
+    btn = gr.Button("Generate!")
     
     def generate_mesh(input_image, progress=gr.Progress(track_tqdm=True)):
 
@@ -51,11 +51,11 @@ with gr.Blocks() as demo:
 
     btn.click(generate_mesh, inputs, outputs)
 
-#image = Image.open("./0.png")
-#generate_mesh(image)
+image = Image.open("./0.png")
+generate_mesh(image)
 
 #inputs = gr.inputs.Image(label="Image", type="pil")
 #outputs = gr.Model3D(label="3D Mesh", clear_color=[1.0, 1.0, 1.0, 1.0])
 #gr.Interface(generate_mesh, inputs, outputs).launch(share=True)
 
-demo.queue(concurrency_count=20).launch(share=True)
+#demo.queue(concurrency_count=20).launch(share=True)

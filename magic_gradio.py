@@ -24,7 +24,7 @@ with gr.Blocks() as demo:
         input_path = "./input"
         output_path = "./out"
         image_path = input_path + "/input.png"
-        GPU_NUM = "0"
+        GPU_NUM = "1"
 
         if os.path.exists(input_path):
             shutil.rmtree(input_path)
@@ -39,8 +39,8 @@ with gr.Blocks() as demo:
 
         try:
             completed_process = subprocess.run(cmd_1.split(), stdout=subprocess.PIPE)
-            #completed_process = subprocess.run(cmd_2.split(), stdout=subprocess.PIPE)
-            main.run()
+            completed_process = subprocess.run(cmd_2.split(), stdout=subprocess.PIPE)
+            #main.run()
             print(completed_process.stdout)
         except subprocess.CalledProcessError as e:
             print(f"Error occurred: {e}")

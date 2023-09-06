@@ -34,8 +34,8 @@ def generate_mesh(input_image, progress=gr.Progress(track_tqdm=True)):
 
 
     try:
-        completed_process = subprocess.Popen(cmd_1.split(), shell=True, stdout=subprocess.PIPE)
-        completed_process = subprocess.Popen(cmd_2.split(), shell=True, stdout=subprocess.PIPE)
+        completed_process = subprocess.Popen(cmd_1.split(), stdout=subprocess.PIPE)
+        completed_process = subprocess.Popen(cmd_2.split(), stdout=subprocess.PIPE)
         print(completed_process.stdout)
     except subprocess.CalledProcessError as e:
         print(f"Error occurred: {e}")

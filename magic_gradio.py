@@ -7,6 +7,7 @@ import numpy as np
 import shutil
 import time
 import tqdm
+import main
 
 with gr.Blocks() as demo:
     
@@ -38,7 +39,8 @@ with gr.Blocks() as demo:
 
         try:
             completed_process = subprocess.run(cmd_1.split(), stdout=subprocess.PIPE)
-            completed_process = subprocess.run(cmd_2.split(), stdout=subprocess.PIPE)
+            #completed_process = subprocess.run(cmd_2.split(), stdout=subprocess.PIPE)
+            main.run()
             print(completed_process.stdout)
         except subprocess.CalledProcessError as e:
             print(f"Error occurred: {e}")

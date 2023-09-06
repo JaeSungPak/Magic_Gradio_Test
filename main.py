@@ -347,7 +347,6 @@ def _parse_args():
     return args, args_text
 
 def run():
-    init()
     args, args_text = _parse_args()
     opt = edict(vars(args))
 

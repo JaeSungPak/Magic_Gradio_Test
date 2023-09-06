@@ -361,8 +361,11 @@ def run():
     opt.images, opt.ref_radii, opt.ref_polars, opt.ref_azimuths, opt.zero123_ws = [], [], [], [], []
     opt.default_zero123_w = 1
 
+    DATA_DIR="./input"
+    IMAGE_NAME= "rgba.png"
+
     opt.text = "A high-resolution DSLR image of <token>"
-    opt.image = "./input/rgba.png"
+    opt.image = f"{DATA_DIR}/{IMAGE_NAME}"
     opt.learned_embeds_path = "./input/learned_embeds.bin"
     opt.workspace = "out/magic123-nerf-coarse/magic123_input_nerf_coarse"
     opt.optim = "adam"

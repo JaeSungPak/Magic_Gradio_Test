@@ -35,7 +35,9 @@ with gr.Blocks() as demo:
 
         try:
             completed_process = subprocess.Popen(cmd_1.split(), stdout=subprocess.PIPE, shell=True)
+            exit_codes = [p.wait() for p in completed_process]
             completed_process = subprocess.Popen(cmd_2.split(), stdout=subprocess.PIPE, shell=True)
+            exit_codes = [p.wait() for p in completed_process]
             print(completed_process.stdout)
         except subprocess.CalledProcessError as e:
             print(f"Error occurred: {e}")

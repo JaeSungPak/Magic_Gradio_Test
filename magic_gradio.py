@@ -35,7 +35,7 @@ with gr.Blocks() as demo:
 
         try:
             completed_process = subprocess.Popen(cmd_1.split(), stdout=subprocess.PIPE, shell=True)
-            completed_process = subprocess.Popen(cmd_2.split(), stdout=subprocess.PIPE, ßshell=True)
+            completed_process = subprocess.Popen(cmd_2.split(), stdout=subprocess.PIPE, shell=True)
             print(completed_process.stdout)
         except subprocess.CalledProcessError as e:
             print(f"Error occurred: {e}")

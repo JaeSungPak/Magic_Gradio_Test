@@ -8,16 +8,7 @@ import shutil
 import time
 import tqdm
 
-def run(command):
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
-    while True:
-        line = process.stdout.readline().rstrip()
-        if not line:
-            break
-        yield line.decode('utf-8')
-
-def generate_mesh(input_image):
-    
+def generate_mesh(input_image, progress=gr.Progress(track_tqdm=True)):
     for i in tqdm.tqdm(range(5), desc="outer"):
         for j in tqdm.tqdm(range(4), desc="inner"):
             time.sleep(1)

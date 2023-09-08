@@ -1047,7 +1047,7 @@ class Trainer(object):
         if self.opt.dmtet:
             stage_num = "Fine Stage[2/2] / "
             
-        pbar = tqdm.tqdm(total=range(max_epochs), desc=stage_num+"epoch")
+        pbar = tqdm.tqdm(total=max_epochs, desc=stage_num+"epoch")
         
         for epoch in range(self.epoch + 1, max_epochs + 1):
             self.epoch = epoch + 1

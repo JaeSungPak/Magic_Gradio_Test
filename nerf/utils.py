@@ -1046,7 +1046,7 @@ class Trainer(object):
         stage_num = "Coarse Stage[1/2] / "
         if self.opt.dmtet:
             stage_num = "Fine Stage[2/2] / "
-        print("epochs what: " + self.epoch + " " + max_epochs)
+        print("epochs what: ", self.epoch, " ", max_epochs)
         for epoch in tqdm.tqdm(range(self.epoch + 1, max_epochs + 1), desc=stage_num+"epoch"):
             self.epoch = epoch
 

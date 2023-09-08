@@ -15,7 +15,7 @@ module load gcc/7.5.0
 
 #source ~/.bashrc
 #source activate magic123
-source venv_magic123/bin/activate
+#source venv_magic123/bin/activate
 which python 
 
 nvidia-smi

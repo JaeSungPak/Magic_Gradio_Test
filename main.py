@@ -377,7 +377,7 @@ if __name__ == '__main__':
     #opt.t_range = [0.2, 0.6]
     #opt.bg_radius = -1
 
-    print("image_name: "opt.image)
+    print("image_name: " + opt.image)
 
     # parameters for image-conditioned generation
     if opt.image is not None or opt.image_config is not None:

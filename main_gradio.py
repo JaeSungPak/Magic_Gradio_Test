@@ -380,7 +380,7 @@ def run():
 #if __name__ == '__main__':
     args, args_text = _parse_args()
     opt = init_opt()
-
+    print("is this safe? 1")
     # parameters for image-conditioned generation
     if opt.image is not None or opt.image_config is not None:
         if 'zero123' in opt.guidance:
@@ -417,7 +417,7 @@ def run():
                 opt.default_polar = opt.ref_polars[0]
                 opt.default_azimuth = opt.ref_azimuths[0]
                 opt.default_zero123_w = opt.zero123_ws[0]
-
+    print("is this safe? 2")
     # reset to None
     if len(opt.images) == 0:
         opt.images = None
@@ -464,7 +464,7 @@ def run():
     if opt.seed < 0:
         opt.seed = random.randint(0, 10000)
     seed_everything(int(opt.seed))
-
+    print("is this safe? 3")
     if opt.backbone == 'vanilla':
         from nerf.network import NeRFNetwork
     elif opt.backbone == 'grid':
@@ -488,7 +488,7 @@ def run():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     opt.device = device
     model = NeRFNetwork(opt).to(device)
-
+    print("is this safe? 4")
     if opt.init_ckpt != '':
         if not os.path.exists(opt.init_ckpt):
             logger.warning(f'ckpt {opt.init_ckpt} is not found')
@@ -524,7 +524,7 @@ def run():
         logger.info(f'Got sdf from Shap-E init...')
 
     logger.info(model)
-
+    print("is this safe? 5")
     if opt.six_views:
         guidance = None  # no need to load guidance model at test
 
@@ -617,7 +617,7 @@ def run():
         opt.lambda_guidance = lambda_guidance
         opt.guidance_scale = guidance_scale
 
-        print("is this safe?")
+        print("is this safe? 6")
         
         logger.info(opt)
         trainer = Trainer(' '.join(sys.argv), os.path.basename(opt.workspace), opt, model,

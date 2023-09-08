@@ -406,7 +406,9 @@ def run():
 
         if opt.image_config is not None:
             # for multiview (zero123)
+            print("is this")
             conf = pd.read_csv(opt.image_config, skipinitialspace=True)
+            print("problem space?")
             opt.images += list(conf.image)
             opt.ref_radii += list(conf.radius)
             opt.ref_polars += list(conf.polar)
@@ -506,7 +508,6 @@ def run():
     if opt.use_shape and opt.dmtet:
         # now only supports shape for dmtet init
         from guidance.shape_utils import get_shape_from_image
-        print("name replace: " + opt.image.replace('rgba', 'rgb'))
         opt.points = generate_grid_points(
             128, device=device) if not opt.dmtet else model.dmtet.verts
         opt.rpsts, opt.colors = get_shape_from_image(

@@ -250,6 +250,7 @@ class Trainer(object):
         self.scheduler_update_every_step = scheduler_update_every_step
         self.device = device if device is not None else torch.device(f'cuda:{local_rank}' if torch.cuda.is_available() else 'cpu')
         self.console = Console()
+        
 
         model.to(self.device)
         if self.world_size > 1:
@@ -1045,7 +1046,7 @@ class Trainer(object):
         stage_num = "Coarse Stage[1/2] / "
         if self.opt.dmtet:
             stage_num = "Fine Stage[2/2] / "
-        
+        print("epochs what: " + self.epoch + " " + max_epochs)
         for epoch in tqdm.tqdm(range(self.epoch + 1, max_epochs + 1), desc=stage_num+"epoch"):
             self.epoch = epoch
 

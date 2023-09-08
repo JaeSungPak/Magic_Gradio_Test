@@ -406,9 +406,7 @@ def run():
 
         if opt.image_config is not None:
             # for multiview (zero123)
-            print("is this")
             conf = pd.read_csv(opt.image_config, skipinitialspace=True)
-            print("problem space?")
             opt.images += list(conf.image)
             opt.ref_radii += list(conf.radius)
             opt.ref_polars += list(conf.polar)
@@ -619,6 +617,8 @@ def run():
         opt.lambda_guidance = lambda_guidance
         opt.guidance_scale = guidance_scale
 
+        print("is this safe?")
+        
         logger.info(opt)
         trainer = Trainer(' '.join(sys.argv), os.path.basename(opt.workspace), opt, model,
                           guidance,

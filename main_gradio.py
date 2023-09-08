@@ -362,19 +362,19 @@ def init_opt():
     opt.images, opt.ref_radii, opt.ref_polars, opt.ref_azimuths, opt.zero123_ws = [], [], [], [], []
     opt.default_zero123_w = 1
 
-    #opt.text = "A high-resolution DSLR image of <token>"
-    #opt.image = "./input/rgba.png"
-    #opt.learned_embeds_path = "./input/learned_embeds.bin"
-    #opt.workspace = "out/magic123-nerf-coarse/magic123_input_nerf_coarse"
-    #opt.optim = "adam"
-    #opt.iters = 500
-    #opt.guidance = ['SD', 'zero123']
-    #opt.lambda_guidance = [1.0, 40]
-    #opt.guidance_scale = [100, 5]
-    #opt.latent_iter_ratio = 0
-    #opt.normal_iter_ratio = 0.2
-    #opt.t_range = [0.2, 0.6]
-    #opt.bg_radius = -1
+    opt.text = "A high-resolution DSLR image of <token>"
+    opt.image = "./input/rgba.png"
+    opt.learned_embeds_path = "./input/learned_embeds.bin"
+    opt.workspace = "out/magic123-nerf-coarse/magic123_input_nerf_coarse"
+    opt.optim = "adam"
+    opt.iters = 500
+    opt.guidance = ['SD', 'zero123']
+    opt.lambda_guidance = [1.0, 40]
+    opt.guidance_scale = [100, 5]
+    opt.latent_iter_ratio = 0
+    opt.normal_iter_ratio = 0.2
+    opt.t_range = [0.2, 0.6]
+    opt.bg_radius = -1
 
     return opt
 

@@ -1050,7 +1050,7 @@ class Trainer(object):
         pbar = tqdm.tqdm(total=max_epochs, desc=stage_num+"epoch")
         
         for epoch in range(self.epoch + 1, max_epochs + 1):
-            self.epoch = epoch + 1
+            self.epoch = epoch
 
             self.train_one_epoch(train_loader, max_epochs)
 

@@ -36,7 +36,7 @@ with gr.Blocks() as demo:
             print(completed_process.stdout)
             
             for i in tqdm.tqdm(range(50), desc="Finished image preprocessing..."):
-                time.sleep(0.1)
+                time.sleep(0.01)
                     
             #completed_process = subprocess.run(cmd_2.split(), stdout=subprocess.PIPE)
             main_gradio.run(False)

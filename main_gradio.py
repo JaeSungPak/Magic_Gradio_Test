@@ -652,7 +652,7 @@ def run(dmtet=True):
             test_loader = NeRFDataset(
                 opt, device=device, type='test', H=opt.H, W=opt.W, size=opt.dataset_size_test).dataloader()
             max_epoch = np.ceil(opt.iters / len(train_loader)).astype(np.int32)
-
+            print("max epoch: ", max_epoch)
             trainer.train(train_loader, valid_loader, test_loader, max_epoch)
 
             trainer.test(test_loader)

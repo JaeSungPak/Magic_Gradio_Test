@@ -8,7 +8,6 @@ import shutil
 import time
 import tqdm
 import main_gradio
-from importlib import reload
 
 with gr.Blocks() as demo:
     inputs = gr.inputs.Image(label="Image", type="pil")
@@ -36,12 +35,11 @@ with gr.Blocks() as demo:
             completed_process = subprocess.run(cmd.split(), stdout=subprocess.PIPE)
             print(completed_process.stdout)
             
-            for i in tqdm.tqdm(range(2), desc="Finished image preprocessing..."):
-                time.sleep(0.05)
+            for i in tqdm.tqdm(range(50), desc="Finished image preprocessing..."):
+                time.sleep(0.1)
                     
             #completed_process = subprocess.run(cmd_2.split(), stdout=subprocess.PIPE)
             main_gradio.run(False)
-            foo = reload(main_gradio)
             main_gradio.run(True)
             print(completed_process.stdout)
         except subprocess.CalledProcessError as e:

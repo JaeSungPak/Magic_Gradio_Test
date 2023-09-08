@@ -357,7 +357,6 @@ def init_opt():
     opt.images, opt.ref_radii, opt.ref_polars, opt.ref_azimuths, opt.zero123_ws = [], [], [], [], []
     opt.default_zero123_w = 1
 
-    opt.option = True 
     opt.text = "A high-resolution DSLR image of <token>"
     opt.sd_version = '1.5'
     opt.image = "./input/rgba.png"

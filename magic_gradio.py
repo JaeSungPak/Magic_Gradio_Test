@@ -33,6 +33,7 @@ with gr.Blocks() as demo:
         cmd_2 = f"bash scripts/magic123/run_both_priors.sh {GPU_NUM} nerf dmtet {input_path} 1 1"
         try:
             completed_process = subprocess.run(cmd_1.split(), stdout=subprocess.PIPE)
+            print(completed_process.stdout)
             
             for i in tqdm.tqdm(range(2), desc="outer"):
                 for j in tqdm.tqdm(range(50), desc="inner"):

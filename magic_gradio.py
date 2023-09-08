@@ -39,8 +39,8 @@ with gr.Blocks() as demo:
         main_gradio.run()
         try:
             completed_process = subprocess.run(cmd_1.split(), stdout=subprocess.PIPE)
-            completed_process = subprocess.run(cmd_2.split(), stdout=subprocess.PIPE)
-            #main.run()
+            #completed_process = subprocess.run(cmd_2.split(), stdout=subprocess.PIPE)
+            main.run()
             print(completed_process.stdout)
         except subprocess.CalledProcessError as e:
             print(f"Error occurred: {e}")

@@ -386,9 +386,7 @@ class Trainer(object):
             rgbas_hw = []
             mask_no_edges = []
             for image in self.opt.images:
-                print("is that a")
                 rgba = cv2.cvtColor(cv2.imread(image, cv2.IMREAD_UNCHANGED), cv2.COLOR_BGRA2RGBA)
-                print("problem place?")   
                 rgbas.append(rgba)
                 rgba_hw = cv2.resize(rgba, (w, h), interpolation=cv2.INTER_AREA).astype(np.float32) / 255
                 rgbas_hw.append(rgba_hw)

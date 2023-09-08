@@ -35,7 +35,7 @@ with gr.Blocks() as demo:
             for j in tqdm.tqdm(range(50), desc="inner"):
                 time.sleep(0.05)
                 
-        #cmd_2 = f"bash scripts/magic123/run_both_priors.sh {GPU_NUM} nerf dmtet {input_path} 1 1"
+        cmd_2 = f"bash scripts/magic123/run_both_priors.sh {GPU_NUM} nerf dmtet {input_path} 1 1"
         main_gradio.run()
         try:
             completed_process = subprocess.run(cmd_1.split(), stdout=subprocess.PIPE)

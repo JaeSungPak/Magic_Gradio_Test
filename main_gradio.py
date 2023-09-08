@@ -363,6 +363,7 @@ def init_opt():
     opt.default_zero123_w = 1
 
     opt.text = "A high-resolution DSLR image of <token>"
+    opt.sd_version = 1.5
     opt.image = "./input/rgba.png"
     opt.learned_embeds_path = "./input/learned_embeds.bin"
     opt.workspace = "out/magic123-nerf-coarse/magic123_input_nerf_coarse"
@@ -375,6 +376,7 @@ def init_opt():
     opt.normal_iter_ratio = 0.2
     opt.t_range = [0.2, 0.6]
     opt.bg_radius = -1
+    opt.save_mesh = True
 
     return opt
 

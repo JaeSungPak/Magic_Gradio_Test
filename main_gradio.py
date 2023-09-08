@@ -379,8 +379,8 @@ def init_opt():
     return opt
 
 
-#def run():
-if __name__ == '__main__':
+def run():
+#if __name__ == '__main__':
     args, args_text = _parse_args()
     opt = init_opt()
 

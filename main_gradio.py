@@ -506,7 +506,7 @@ def run():
     if opt.use_shape and opt.dmtet:
         # now only supports shape for dmtet init
         from guidance.shape_utils import get_shape_from_image
-
+        print("name replace: " + opt.image.replace('rgba', 'rgb'))
         opt.points = generate_grid_points(
             128, device=device) if not opt.dmtet else model.dmtet.verts
         opt.rpsts, opt.colors = get_shape_from_image(

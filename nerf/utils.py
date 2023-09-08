@@ -1063,7 +1063,7 @@ class Trainer(object):
 
             if self.epoch % self.opt.test_interval == 0 or self.epoch == max_epochs:
                 self.test(test_loader, img_folder='images' if self.epoch == max_epochs else f'images_ep{self.epoch:04d}')
-
+            
             pbar.update(1)
 
         pbar.close()
@@ -1115,6 +1115,7 @@ class Trainer(object):
                             all_outputs[key] = []
                         all_outputs[key].append(value)
                 pbar.update(loader.batch_size)
+        pbar.close()
 
         for key, value in all_outputs.items():
             all_outputs[key] = torch.cat(value, dim=0)
@@ -1432,10 +1433,10 @@ class Trainer(object):
                         f"loss={loss_val:.4f} ({total_loss/self.local_step:.4f})")
                     pbar.update(loader.batch_size)
 
-
+        
         average_loss = total_loss / self.local_step
         self.stats["valid_loss"].append(average_loss)
-
+        pbar.close()
         if self.local_rank == 0:
             pbar.close()
             if not self.use_loss_as_metric and len(self.metrics) > 0:

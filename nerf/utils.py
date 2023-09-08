@@ -1042,11 +1042,14 @@ class Trainer(object):
         #     gc.collect()
         #     torch.cuda.empty_cache()
 
+        pbar = tqdm.tqdm(total=range(max_epochs), desc=stage_num+"epoch")
+        
         start_t = time.time()
         stage_num = "Coarse Stage[1/2] / "
         if self.opt.dmtet:
             stage_num = "Fine Stage[2/2] / "
-        for epoch in tqdm.tqdm(range(max_epochs), desc=stage_num+"epoch"):
+            
+        for epoch in range(self.epoch + 1, max_epochs + 1):
             self.epoch = epoch + 1
 
             self.train_one_epoch(train_loader, max_epochs)
@@ -1061,8 +1064,8 @@ class Trainer(object):
             if self.epoch % self.opt.test_interval == 0 or self.epoch == max_epochs:
                 self.test(test_loader, img_folder='images' if self.epoch == max_epochs else f'images_ep{self.epoch:04d}')
 
-            print("/n")
-
+            pbar.update(1)
+        
         end_t = time.time()
 
         self.total_train_t = end_t - start_t + self.total_train_t

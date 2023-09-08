@@ -351,17 +351,13 @@ def init_opt():
     args, args_text = _parse_args()
     opt = edict(vars(args))
 
-    if opt.O:
-        opt.fp16 = True
-        opt.cuda_ray = True
-
-    elif opt.O2:
-        opt.fp16 = True
-        opt.backbone = 'vanilla'
+    opt.fp16 = True
+    opt.cuda_ray = True
 
     opt.images, opt.ref_radii, opt.ref_polars, opt.ref_azimuths, opt.zero123_ws = [], [], [], [], []
     opt.default_zero123_w = 1
 
+    opt.option = True 
     opt.text = "A high-resolution DSLR image of <token>"
     opt.sd_version = '1.5'
     opt.image = "./input/rgba.png"

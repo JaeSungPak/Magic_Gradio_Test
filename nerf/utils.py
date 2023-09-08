@@ -1061,6 +1061,9 @@ class Trainer(object):
             if self.epoch % self.opt.test_interval == 0 or self.epoch == max_epochs:
                 self.test(test_loader, img_folder='images' if self.epoch == max_epochs else f'images_ep{self.epoch:04d}')
 
+            if self.epoch == max_epochs:
+                break
+
         end_t = time.time()
 
         self.total_train_t = end_t - start_t + self.total_train_t

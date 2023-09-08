@@ -8,27 +8,7 @@ import shutil
 import time
 import tqdm
 import main_gradio
-
-def reload_package(root_module):
-    package_name = root_module.__name__
-
-    # get a reference to each loaded module
-    loaded_package_modules = dict([
-        (key, value) for key, value in sys.modules.items() 
-        if key.startswith(package_name) and isinstance(value, types.ModuleType)])
-
-    # delete references to these loaded modules from sys.modules
-    for key in loaded_package_modules:
-        del sys.modules[key]
-
-    # load each of the modules again; 
-    # make old modules share state with new modules
-    for key in loaded_package_modules:
-        print 'loading %s' % key
-        newmodule = __import__(key)
-        oldmodule = loaded_package_modules[key]
-        oldmodule.__dict__.clear()
-        oldmodule.__dict__.update(newmodule.__dict__)
+from importlib import reload
 
 with gr.Blocks() as demo:
     inputs = gr.inputs.Image(label="Image", type="pil")
@@ -50,19 +30,18 @@ with gr.Blocks() as demo:
         os.mkdir(input_path)
         input_image.save(image_path)
 
-        cmd_1 = f"python preprocess_image.py --path {image_path}"
-        cmd_2 = f"bash scripts/magic123/run_both_priors.sh {GPU_NUM} nerf dmtet {input_path} 1 1"
+        cmd = f"python preprocess_image.py --path {image_path}"
+        #cmd_2 = f"bash scripts/magic123/run_both_priors.sh {GPU_NUM} nerf dmtet {input_path} 1 1"
         try:
-            completed_process = subprocess.run(cmd_1.split(), stdout=subprocess.PIPE)
+            completed_process = subprocess.run(cmd.split(), stdout=subprocess.PIPE)
             print(completed_process.stdout)
             
-            for i in tqdm.tqdm(range(2), desc="outer"):
-                for j in tqdm.tqdm(range(50), desc="inner"):
-                    time.sleep(0.1)
+            for i in tqdm.tqdm(range(2), desc="Finished image preprocessing..."):
+                time.sleep(0.05)
                     
             #completed_process = subprocess.run(cmd_2.split(), stdout=subprocess.PIPE)
             main_gradio.run(False)
-            reload_package(main_gradio)
+            foo = reload(main_gradio)
             main_gradio.run(True)
             print(completed_process.stdout)
         except subprocess.CalledProcessError as e:

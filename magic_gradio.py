@@ -7,7 +7,7 @@ import numpy as np
 import shutil
 import time
 import tqdm
-import main.py
+import main
 
 with gr.Blocks() as demo:
     inputs = gr.inputs.Image(label="Image", type="pil")

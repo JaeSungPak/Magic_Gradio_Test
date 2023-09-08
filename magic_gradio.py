@@ -30,15 +30,16 @@ with gr.Blocks() as demo:
         input_image.save(image_path)
 
         cmd_1 = f"python preprocess_image.py --path {image_path}"
-        
-        for i in tqdm.tqdm(range(2), desc="outer"):
-            for j in tqdm.tqdm(range(50), desc="inner"):
-                time.sleep(0.05)
                 
         cmd_2 = f"bash scripts/magic123/run_both_priors.sh {GPU_NUM} nerf dmtet {input_path} 1 1"
         main_gradio.run()
         try:
             completed_process = subprocess.run(cmd_1.split(), stdout=subprocess.PIPE)
+            
+            for i in tqdm.tqdm(range(2), desc="outer"):
+                for j in tqdm.tqdm(range(50), desc="inner"):
+                    time.sleep(0.1)
+                    
             #completed_process = subprocess.run(cmd_2.split(), stdout=subprocess.PIPE)
             main.run()
             print(completed_process.stdout)

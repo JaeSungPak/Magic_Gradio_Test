@@ -23,14 +23,14 @@ with gr.Blocks() as demo:
 
         if os.path.exists(input_path):
             shutil.rmtree(input_path)
-        if os.path.exists(output_path):
-            shutil.rmtree(output_path)
+        if os.path.exists(output_path + "/magic123-nerf-dmtet"):
+            shutil.rmtree(output_path + "/magic123-nerf-dmtet")
 
         os.mkdir(input_path)
         input_image.save(image_path)
 
         cmd = f"python preprocess_image.py --path {image_path}"
-        cmd_2 = f"bash scripts/magic123/run_both_priors.sh {GPU_NUM} nerf dmtet {input_path} 1 1"
+        cmd_2 = f"bash scripts/magic123/run_fine.sh {GPU_NUM} nerf dmtet {input_path} 1 1"
         try:
             completed_process = subprocess.run(cmd.split(), stdout=subprocess.PIPE)
             print(completed_process.stdout)

@@ -7,7 +7,7 @@ import numpy as np
 import shutil
 import time
 import tqdm
-import main_gradio
+import main
 
 with gr.Blocks() as demo:
     inputs = gr.inputs.Image(label="Image", type="pil")
@@ -30,7 +30,7 @@ with gr.Blocks() as demo:
         input_image.save(image_path)
 
         cmd = f"python preprocess_image.py --path {image_path}"
-        #cmd_2 = f"bash scripts/magic123/run_both_priors.sh {GPU_NUM} nerf dmtet {input_path} 1 1"
+        cmd_2 = f"bash scripts/magic123/run_both_priors.sh {GPU_NUM} nerf dmtet {input_path} 1 1"
         try:
             completed_process = subprocess.run(cmd.split(), stdout=subprocess.PIPE)
             print(completed_process.stdout)
@@ -38,9 +38,9 @@ with gr.Blocks() as demo:
             for i in tqdm.tqdm(range(50), desc="Finished image preprocessing..."):
                 time.sleep(0.01)
                     
-            #completed_process = subprocess.run(cmd_2.split(), stdout=subprocess.PIPE)
-            main_gradio.run(False)
-            main_gradio.run(True)
+            completed_process = subprocess.run(cmd_2.split(), stdout=subprocess.PIPE)
+            #main_gradio.run(False)
+            #main_gradio.run(True)
             print(completed_process.stdout)
         except subprocess.CalledProcessError as e:
             print(f"Error occurred: {e}")

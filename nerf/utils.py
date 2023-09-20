@@ -1266,7 +1266,7 @@ class Trainer(object):
         self.local_step = 0
 
         for data in loader:
-
+            print(data)
             # update grid every 16 steps
             if (self.model.cuda_ray or self.model.taichi_ray) and self.global_step % self.opt.update_extra_interval == 0:
                 with torch.cuda.amp.autocast(enabled=self.fp16):
